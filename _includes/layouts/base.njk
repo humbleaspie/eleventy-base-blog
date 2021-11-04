@@ -1,45 +1,143 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title or metadata.title }}</title>
-    <meta name="description" content="{{ description or metadata.description }}">
-    <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}">
-    <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
-    <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
-  </head>
-  <body>
-    <header>
-      <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+	<!--
+			_	_						_		_ 				_				___ _
+ 		| || |_	_ _ __ | |__| |___		/_\	___ | _ (_)___
+ 		| __ | || | '	\| '_ | / -_)	/ _ \(_-< |	_| / -_)
+ 		|_||_|\_,_|_|_|_|_.__|_\___| /_/ \_/__/ |_| |_\___|
+	-->
+	<meta charset="UTF-8">
+	<title>{{ title or metadata.title }}</title>
+	<meta name="description" content="{{ description or metadata.description }}">
 
-      {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-      <ul class="nav">
-      {%- for entry in collections.all | eleventyNavigation %}
-        <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
-      {%- endfor %}
-      </ul>
-    </header>
+	<link rel="stylesheet" href="/assets/css/flickity-min.css" media="screen">
+	<link rel="stylesheet" href="/assets/css/animate.min.css" media="screen">
 
-    <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
+	<link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+	<link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
 
-      <!-- Delete this message -->
-      <div class="warning">
-        <ol>
-          <li>Edit the <code>_data/metadata.json</code> with your blog’s information.</li>
-          <li>(Optional) Edit <code>.eleventy.js</code> with your <a href="https://www.11ty.dev/docs/config/">configuration preferences</a>.</li>
-          <li>Delete this message from <code>_includes/layouts/base.njk</code>.</li>
-        </ol>
-        <p><em>This is an <a href="https://www.11ty.dev/">Eleventy project</a> created from the <a href="https://github.com/11ty/eleventy-base-blog"><code>eleventy-base-blog</code> repo</a>.</em></p>
-      </div>
-      <!-- Stop deleting -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
 
-      {{ content | safe }}
-    </main>
+	<section class="nm animate__animated animate__fadeIn hidden">
+		<div class="nm__c">
+			<div class="nm__close">✖</div>
 
-    <footer></footer>
+			<div class="nm__image"></div>
 
-    <!-- Current page: {{ page.url | url }} -->
-  </body>
+			<div class="nm__content">
+				<div class="nm__tbar">Menu</div>
+
+				<div class="cols">
+					<nav class="menu">
+						<ul>
+							{%- for entry in collections.all | eleventyNavigation %}
+								<li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+							{%- endfor %}
+						</ul>
+					</nav>
+
+					<nav class="menu2">
+						<ul>
+							{%- for entry in collections.all | eleventyNavigation %}
+								<li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+							{%- endfor %}
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<header>
+		<div class="header__c">
+			<a href="{{ '/' | url }}"><div class="header__logo">
+				<img src="/assets/graphics/logo-edit.png" srcset="/assets/graphics/logo-edit.png 1x, /assets/graphics/logo-edit.png 2x" alt="VIP Music Group logo image" />
+			</div></a>
+
+			<div class="nav--open">
+				Menu
+				<svg viewBox="0 0 297 297"><defs/><path d="M108 0H23C10 0 0 10 0 23v85c0 12 10 22 23 22h85c12 0 22-10 22-22V23c0-13-10-23-22-23zM274 0h-85c-12 0-22 10-22 23v85c0 12 10 22 22 22h85c13 0 23-10 23-22V23c0-13-10-23-23-23zM108 167H23c-13 0-23 10-23 22v85c0 13 10 23 23 23h85c12 0 22-10 22-23v-85c0-12-10-22-22-22zM274 167h-85c-12 0-22 10-22 22v85c0 13 10 23 22 23h85c13 0 23-10 23-23v-85c0-12-10-22-23-22z"/></svg>
+			</div>
+		</div>
+	</header>
+
+	<div class="header--spacer"></div>
+
+	<article{% if templateClass %} class="{{ templateClass }}"{% endif %}">
+		<div class="page__c">
+			{{ content | safe }}
+		</div>
+	</article>
+
+	<footer>
+		<div class="footer__c">
+			<h6>&copy; 2021 The VIP Music Groups<br>20-22 Wenlock Road, London, N1 7GU</h6>
+
+			<nav class="menu3">
+				<ul>
+					{%- for entry in collections.all | eleventyNavigation %}
+						<li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+					{%- endfor %}
+				</ul>
+			</nav>
+
+			<div class="footer__socials">
+				<a href="https://instagram.com">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs/><path d="M352 0H160C72 0 0 72 0 160v192c0 88 72 160 160 160h192c88 0 160-72 160-160V160C512 72 440 0 352 0zm112 352c0 62-50 112-112 112H160c-62 0-112-50-112-112V160C48 98 98 48 160 48h192c62 0 112 50 112 112v192z"/><path d="M256 128a128 128 0 100 256 128 128 0 000-256zm0 208a80 80 0 110-160 80 80 0 010 160z"/><circle cx="393.6" cy="118.4" r="17.1"/></svg>
+				</a>
+
+				<a href="https://youtube.com">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs/><path d="M490 114c-14-25-29-29-59-31a3687 3687 0 00-350 0c-30 2-45 6-59 31C7 139 0 181 0 256s7 117 22 142c14 25 29 29 59 31a4167 4167 0 00350 0c30-2 45-6 59-31 15-24 22-67 22-142s-7-117-22-142zM192 352V160l160 96-160 96z"/></svg>
+				</a>
+
+				<a href="https://facebook.com">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs/><path d="M448 0H64C29 0 0 29 0 64v384c0 35 29 64 64 64h192V336h-64v-80h64v-64c0-53 43-96 96-96h64v80h-32c-18 0-32-2-32 16v64h80l-32 80h-48v176h96c35 0 64-29 64-64V64c0-35-29-64-64-64z"/></svg>
+				</a>
+
+				<a href="https://twitter.com">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs/><path d="M512 97c-19 9-39 14-60 17 21-13 38-34 46-58-21 12-43 20-67 25a105 105 0 00-179 96c-87-4-164-46-216-110a106 106 0 0032 140c-17 0-34-5-48-13v2c0 51 37 93 85 103a105 105 0 01-48 1c14 42 52 73 98 74A211 211 0 010 417c46 30 102 47 161 47a297 297 0 00298-312c21-15 39-34 53-55z"/></svg>
+				</a>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Current page: {{ page.url | url }} -->
+
+	<script src="/assets/js/jquery.min.js"></script>
+	<script>
+	$(document).ready(function() {
+		$('.nav--open').on('click', function() {
+			$('.nm').removeClass('hidden');
+		});
+
+		$('.nm__close').on('click', function() {
+			$('.nm').addClass('animate__fadeOut');
+			setTimeout(
+				function() {
+					$('.nm').addClass('hidden');
+					$('.nm').removeClass('animate__fadeOut');
+				}, 1000);
+		});
+
+		$(document).click(function(event) {
+			//if you click on anything except the modal itself or the "open modal" link, close the modal
+
+			if (!$(event.target).closest(".nm__c,.nav--open").length) {
+
+				$("body").find(".nm").addClass('animate__fadeOut');
+				setTimeout(
+					function() {
+						$('.nm').addClass('hidden');
+						$('.nm').removeClass('animate__fadeOut');
+					}, 1000);
+
+			}
+		});
+	});
+	</script>
+
+</body>
 </html>
