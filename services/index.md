@@ -1,8 +1,8 @@
 ---
 layout: layouts/post.njk
-title: Our Story
+title: Services
 eleventyNavigation:
-  key: Our Story
-  order: 2
+  key: Services
+  order: 3
 ---
 
