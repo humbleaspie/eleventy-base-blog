@@ -1,5 +1,5 @@
 ---
-layout: layouts/post.njk
+layout: layouts/page.njk
 title: Our Story
 eleventyNavigation:
   key: Our Story
