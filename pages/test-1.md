@@ -1,6 +1,6 @@
 ---
-layout: post
-title: Test 1
+layout: page
+title: Page 1 in da list
 date: 2021-11-05T13:56:20.947Z
 thumbnail: /assets/images/uploads/logo.png
 ---
