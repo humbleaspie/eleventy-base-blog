@@ -33,6 +33,12 @@ eleventyNavigation:
 </div>
 </article>
 
+<ul>
+{%- for post in collections.pages -%}
+<li{% if page.url == post.url %} aria-current="page"{% endif %}><a href="{{ post.url }}">{{ post.data.title }}</a></li>
+{%- endfor -%}
+</ul>
+
 <article class="news">
 <div class="carousel" data-flickity='{ "groupCells": true, "wrapAround": true, "autoPlay": 5000, "prevNextButtons": false, "pageDots": false, "imagesLoaded": true }'>
   <div class="carousel-cell">
