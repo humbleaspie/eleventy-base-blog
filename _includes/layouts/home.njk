@@ -42,6 +42,9 @@
               {%- for entry in collections.all | eleventyNavigation %}
                 <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
               {%- endfor %}
+              {%- for post in collections.pages -%}
+              <li class="nav-item{% if page.url == post.url %} nav-item-active{% endif %}">{{ post.data.title }}</a></li>
+              {%- endfor -%}
             </ul>
           </nav>
 
@@ -50,6 +53,9 @@
               {%- for entry in collections.all | eleventyNavigation %}
                 <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
               {%- endfor %}
+              {%- for post in collections.pages -%}
+              <li class="nav-item{% if page.url == post.url %} nav-item-active{% endif %}">{{ post.data.title }}</a></li>
+              {%- endfor -%}
             </ul>
           </nav>
         </div>
@@ -83,6 +89,9 @@
           {%- for entry in collections.all | eleventyNavigation %}
             <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
           {%- endfor %}
+          {%- for post in collections.pages -%}
+          <li class="nav-item{% if page.url == post.url %} nav-item-active{% endif %}">{{ post.data.title }}</a></li>
+          {%- endfor -%}
         </ul>
       </nav>
 

@@ -34,22 +34,28 @@
 				<div class="nm__tbar">Menu</div>
 
 				<div class="cols">
-					<nav class="menu">
-						<ul>
-							{%- for entry in collections.all | eleventyNavigation %}
-								<li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
-							{%- endfor %}
-						</ul>
-					</nav>
+          <nav class="menu">
+            <ul>
+              {%- for entry in collections.all | eleventyNavigation %}
+                <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+              {%- endfor %}
+              {%- for post in collections.pages -%}
+              <li class="nav-item{% if page.url == post.url %} nav-item-active{% endif %}">{{ post.data.title }}</a></li>
+              {%- endfor -%}
+            </ul>
+          </nav>
 
-					<nav class="menu2">
-						<ul>
-							{%- for entry in collections.all | eleventyNavigation %}
-								<li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
-							{%- endfor %}
-						</ul>
-					</nav>
-				</div>
+          <nav class="menu2">
+            <ul>
+              {%- for entry in collections.all | eleventyNavigation %}
+                <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+              {%- endfor %}
+              {%- for post in collections.pages -%}
+              <li class="nav-item{% if page.url == post.url %} nav-item-active{% endif %}">{{ post.data.title }}</a></li>
+              {%- endfor -%}
+            </ul>
+          </nav>
+        </div>
 			</div>
 		</div>
 	</section>
@@ -84,6 +90,9 @@
 					{%- for entry in collections.all | eleventyNavigation %}
 						<li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
 					{%- endfor %}
+          {%- for post in collections.pages -%}
+          <li class="nav-item{% if page.url == post.url %} nav-item-active{% endif %}">{{ post.data.title }}</a></li>
+          {%- endfor -%}
 				</ul>
 			</nav>
 
