@@ -41,7 +41,7 @@
               {%- endfor %}
 
               {%- for post in collections.pages -%}
-              <li class="nav-item{% if page.url == post.url %} nav-item-active{% endif %}">{{ post.data.title }}</a></li>
+              <li class="nav-item{% if page.url == post.url %} nav-item-active{% endif %}"><a href="{{ post.url }}">{{ post.data.title }}</a></li>
               {%- endfor -%}
             </ul>
           </nav>
@@ -53,7 +53,7 @@
               {%- endfor %}
 
               {%- for post in collections.pages -%}
-              <li class="nav-item{% if page.url == post.url %} nav-item-active{% endif %}">{{ post.data.title }}</a></li>
+              <li class="nav-item{% if page.url == post.url %} nav-item-active{% endif %}"><a href="{{ post.url }}">{{ post.data.title }}</a></li>
               {%- endfor -%}
             </ul>
           </nav>
@@ -94,7 +94,7 @@
 					{%- endfor %}
 
           {%- for post in collections.pages -%}
-          <li class="nav-item{% if page.url == post.url %} nav-item-active{% endif %}">{{ post.data.title }}</a></li>
+          <li class="nav-item{% if page.url == post.url %} nav-item-active{% endif %}"><a href="{{ post.url }}">{{ post.data.title }}</a></li>
           {%- endfor -%}
 				</ul>
 			</nav>
